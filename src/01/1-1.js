@@ -1,7 +1,10 @@
-function statement(invoice, plays) {
+export function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
+
+  console.log("invoice", invoice.customer);
+  console.log("plays", plays);
 
   const format = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -40,5 +43,6 @@ function statement(invoice, plays) {
   }
   result += `Amount owed is ${format(totalAmount / 100)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
+  console.log(result);
   return result;
 }
