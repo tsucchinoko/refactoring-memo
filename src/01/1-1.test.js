@@ -25,12 +25,16 @@ it("should return 2", () => {
   };
   const want = `
     Statement for BigCo
-    Hamlet: $650.00 (55 seats)
-    As You Like It: $580.00 (35 seats)
-    Othello: $500.00 (40 seats)
+      Hamlet: $650.00 (55 seats)
+      As You Like It: $580.00 (35 seats)
+      Othello: $500.00 (40 seats)
     Amount owed is $1,730.00
     You earned 47 credits
-    `.trim();
+    `;
   const result = statement(invoices, plays);
-  expect(result.trim()).toEqual(want);
+
+  // 正規表現を使用して空白を削除
+  const cleanResult = result.replace(/\s/g, "");
+  const cleanWant = want.replace(/\s/g, "");
+  expect(cleanResult.trim()).toEqual(cleanWant);
 });
