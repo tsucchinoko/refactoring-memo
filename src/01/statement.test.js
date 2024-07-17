@@ -1,6 +1,6 @@
-import { statement } from "./1-2";
+import { statement } from "./statement";
 
-it("should return 2", () => {
+it("should return statement result", () => {
   const invoices = {
     customer: "BigCo",
     performances: [
