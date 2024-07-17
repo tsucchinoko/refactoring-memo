@@ -1,7 +1,7 @@
 export function statement(invoice, plays) {
   const statementData = createStatementData(invoice, plays);
 
-  return renderPlainText(statementData, plays);
+  return renderPlainText(statementData);
 }
 
 function createStatementData(invoice, plays) {
@@ -63,7 +63,7 @@ function createStatementData(invoice, plays) {
   return statementData;
 }
 
-function renderPlainText(data, plays) {
+function renderPlainText(data) {
   let result = `Statement for ${data.customer}\n`;
 
   for (let perf of data.performances) {
